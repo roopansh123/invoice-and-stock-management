@@ -1,104 +1,79 @@
-
 ## Billing & Inventory Management System
 
 A full-stack **MERN + Electron** desktop application for managing billing, inventory, customers, suppliers, and business analytics.
+This project was developed by **Roopansh Sethi** as a portfolio project to demonstrate full-stack development skills.
 
 ---
 
 ## 📦 Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Layer    | Technology                                          |
+| -------- | --------------------------------------------------- |
 | Frontend | React 18, React Router v6, Chart.js, react-to-print |
-| Backend | Node.js, Express.js |
-| Database | MongoDB (Mongoose ODM) |
-| Desktop | Electron 28 |
-| Auth | JWT + bcrypt |
-| Styling | Custom CSS (dark theme, no external UI lib) |
+| Backend  | Node.js, Express.js                                 |
+| Database | MongoDB (Mongoose ODM)                              |
+| Desktop  | Electron 28                                         |
+| Auth     | JWT + bcrypt                                        |
+| Styling  | Custom CSS (dark theme, no external UI library)     |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Node.js** v18+ (https://nodejs.org)
-- **MongoDB** v6+ running locally (https://www.mongodb.com)
-- **npm** v9+
+
+* **Node.js** v18+
+* **MongoDB** v6+ running locally
+* **npm** v9+
 
 ### Installation
 
 ```bash
-# 1. Clone / unzip the project
-cd rfi-app
+# 1. Clone the repository
+git clone https://github.com/roopansh123/invoice-and-stock-management.git
 
-# 2. Install all dependencies (root + server + client)
+# 2. Navigate into the project
+cd invoice-and-stock-management
+
+# 3. Install dependencies
 npm run install-all
 
-# 3. Configure environment
+# 4. Configure environment variables
 # Edit server/.env and update:
-#   MONGO_URI — your MongoDB connection string
-#   JWT_SECRET — change to a strong random string in production
+# MONGO_URI — your MongoDB connection string
+# JWT_SECRET — a secure random string
 
-# 4. Start in development mode
+# 5. Start development environment
 npm start
 ```
 
 This will launch:
-- 🟢 Express server on `http://localhost:5000`
-- 🔵 React dev server on `http://localhost:3000`
-- 🖥️ Electron desktop window
 
-### First Time Setup
-
-1. On the login screen, click **"Initialize Admin"** to create the default admin account
-2. Login with: `admin@rfi.com` / `admin123`
-3. **Change the password** immediately in settings
+* 🟢 Express server on `http://localhost:5000`
+* 🔵 React dev server on `http://localhost:3000`
+* 🖥️ Electron desktop window
 
 ---
 
 ## 🏗️ Project Structure
 
 ```
-rfi-app/
+invoice-and-stock-management/
 ├── electron/
-│   ├── main.js          ← Electron main process
-│   └── preload.js       ← Context bridge (security)
+│   ├── main.js
+│   └── preload.js
 ├── server/
-│   ├── index.js         ← Express app entry
+│   ├── index.js
 │   ├── models/
-│   │   ├── Product.js
-│   │   ├── Customer.js
-│   │   ├── Invoice.js
-│   │   ├── SupplierPurchase.js
-│   │   └── User.js
 │   ├── routes/
-│   │   ├── auth.js
-│   │   ├── products.js
-│   │   ├── customers.js
-│   │   ├── invoices.js
-│   │   ├── purchases.js
-│   │   ├── suppliers.js
-│   │   └── dashboard.js
 │   └── middleware/
-│       └── auth.js
 ├── client/
 │   └── src/
 │       ├── pages/
-│       │   ├── Dashboard.js
-│       │   ├── Inventory.js
-│       │   ├── NewBill.js      ← POS / Billing
-│       │   ├── Invoices.js
-│       │   ├── InvoiceDetail.js
-│       │   ├── Customers.js
-│       │   ├── Purchases.js
-│       │   ├── Suppliers.js
-│       │   └── Reports.js
 │       ├── components/
-│       │   ├── Layout/Layout.js
-│       │   └── Billing/InvoicePrint.js
-│       ├── context/AuthContext.js
-│       └── styles/global.css
-└── package.json         ← Root (Electron)
+│       ├── context/
+│       └── styles/
+└── package.json
 ```
 
 ---
@@ -106,101 +81,87 @@ rfi-app/
 ## ✨ Features
 
 ### 🧾 Billing & Invoicing
-- GST Invoice generation (CGST/SGST for intrastate, IGST for interstate)
-- Non-GST invoices supported
-- Auto-generated invoice numbers: `RFI/YYMM/0001`
-- Discount support (% or flat per item)
-- Round-off calculation
-- Multiple payment methods (Cash, UPI, Card, Bank Transfer, Credit)
-- Partial payment tracking
-- Print-ready invoice layout (A4)
 
-### 👟 Inventory Management
-- Size-wise stock tracking (Indian + UK sizes)
-- Low stock alerts with configurable thresholds
-- Product categories: Formal, Casual, Sports, Sandals, Boots, Kids, Ladies
-- Brand management
-- HSN code & GST rate per product
-- Cost price, selling price & MRP tracking
-- Profit margin calculation
+* GST invoice generation (CGST / SGST / IGST)
+* Automatic invoice numbering
+* Discounts and round-off calculations
+* Multiple payment methods
+* Printable invoice layout
+
+### 📦 Inventory Management
+
+* Size-wise stock tracking
+* Low stock alerts
+* Category and brand management
+* Cost price, selling price, and MRP tracking
+* Profit margin calculations
 
 ### 👥 Customer Management
-- Customer types: Retail, Wholesale, Dealer
-- GSTIN storage for B2B
-- Purchase history tracking
-- Outstanding balance management
-- Credit limit configuration
 
-### 📦 Purchase Orders
-- Supplier management with payment terms
-- Size-wise procurement
-- Receive stock (auto updates inventory)
-- Cost price management
+* Retail / Wholesale / Dealer customer types
+* GSTIN support for B2B
+* Purchase history
+* Credit balance tracking
 
 ### 📊 Reports & Analytics
-- Daily/Monthly/Yearly revenue
-- Revenue by product category
-- Payment method breakdown
-- Top-selling products
-- 6-month revenue trend chart
-- Date-range filtering
+
+* Daily / Monthly / Yearly revenue reports
+* Product category insights
+* Payment method analytics
+* Revenue trend charts
 
 ### 🔐 Authentication
-- Role-based access: Admin, Manager, Cashier
-- JWT authentication (7-day expiry)
-- Secure password hashing (bcrypt)
+
+* Role-based access (Admin / Manager / Cashier)
+* JWT authentication
+* Secure password hashing using bcrypt
 
 ---
 
 ## 🔧 API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/login` | Login |
-| GET | `/api/dashboard` | Dashboard stats |
-| GET | `/api/dashboard/reports` | Analytics |
-| GET/POST | `/api/products` | Products CRUD |
-| PATCH | `/api/products/:id/stock` | Stock adjustment |
-| GET/POST | `/api/customers` | Customers CRUD |
-| GET/POST | `/api/invoices` | Invoices |
-| PATCH | `/api/invoices/:id/payment` | Record payment |
-| GET/POST | `/api/purchases` | Purchase orders |
-| PATCH | `/api/purchases/:id/receive` | Receive stock |
-| GET/POST | `/api/suppliers` | Suppliers CRUD |
+| Method   | Endpoint               | Description         |
+| -------- | ---------------------- | ------------------- |
+| POST     | /api/auth/login        | Login               |
+| GET      | /api/dashboard         | Dashboard stats     |
+| GET      | /api/dashboard/reports | Analytics           |
+| GET/POST | /api/products          | Products CRUD       |
+| GET/POST | /api/customers         | Customers CRUD      |
+| GET/POST | /api/invoices          | Invoice operations  |
+| GET/POST | /api/purchases         | Purchase orders     |
+| GET/POST | /api/suppliers         | Supplier management |
 
 ---
 
 ## 🏭 Building for Production
 
 ```bash
-# Build React app
-cd client && npm run build && cd ..
-
-# Package as desktop app
+cd client
 npm run build
-# Output in ./dist/
+cd ..
+
+npm run build
 ```
+
+Desktop application will be generated in the **dist/** folder.
 
 ---
 
 ## 🔒 Security Notes
 
-1. Change `JWT_SECRET` in `.env` before production deployment
-2. Change default admin password immediately after first login
-3. Use MongoDB Atlas or secure self-hosted MongoDB in production
-4. The `.env` file is included for development — **never commit it to git**
+1. Change `JWT_SECRET` before production deployment.
+2. Use a secure MongoDB instance (MongoDB Atlas recommended).
+3. Do not commit `.env` files to version control.
 
 ---
 
-## 📝 GST Compliance
+## 👨‍💻 Author
 
-The system handles:
-- **Intrastate sales**: CGST + SGST (split 50/50)
-- **Interstate sales**: IGST (full rate)
-- HSN code tracking (default: 6403 for footwear)
-- GST rates: 0%, 5%, 12%, 18%, 28%
-- Taxable amount calculation after discount
+**Roopansh Sethi**
+Full Stack Developer (MERN Stack)
+
+GitHub: https://github.com/roopansh123
 
 ---
 
-*Built for Ram Footware Industries | Version 1.0.0*
+*This project was created as a full-stack portfolio application demonstrating a complete billing and inventory management system.*
