@@ -1,15 +1,15 @@
-RFI MANAGEMENT SOFTWARE LICENSE
+INVOICE AND STOCK MANAGEMENT SOFTWARE LICENSE
 
-Copyright (c) 2024 Ram Footware Industries
+Copyright (c) 2026 Roopansh Sethi
 All rights reserved.
 
-This software is proprietary and confidential. It is licensed exclusively 
-for use by Ram Footware Industries and authorized users.
+This software was developed by Roopansh Sethi as a portfolio and demonstration project.
 
 TERMS OF USE:
-1. This software may only be used for business operations of Ram Footware Industries.
-2. Redistribution or resale of this software is strictly prohibited.
-3. The software is provided "as is" without warranty of any kind.
-4. Ram Footware Industries shall not be liable for any damages arising from use.
 
-By installing this software, you agree to these terms.
+1. This software may be used for educational, demonstration, and portfolio purposes.
+2. Redistribution or modification of this software should credit the original author.
+3. The software is provided "as is", without warranty of any kind.
+4. The author shall not be liable for any damages arising from the use of this software.
+
+By using this software, you acknowledge that it is an independent project created by Roopansh Sethi.
