@@ -1,0 +1,97 @@
+{
+  "name": "rfi-management",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "./",
+  "description": "Ram Footware Industries - Billing & Inventory Management",
+  "main": "electron/main.js",
+  "author": {
+    "name": "Ram Footware Industries",
+    "email": "info@rfi.com"
+  },
+  "license": "ISC",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\" \"wait-on http://localhost:3000 && npm run electron:dev\"",
+    "electron:dev": "NODE_ENV=development electron .",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm start",
+    "build:react": "cd client && npm run build",
+    "build:mac": "npm run build:react && electron-builder --mac --config.mac.identity=null",
+    "build:win": "npm run build:react && electron-builder --win",
+    "build:all": "npm run build:react && electron-builder --mac --win --config.mac.identity=null",
+    "install-all": "npm install && cd server && npm install --production && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.rfi.management",
+    "productName": "RFI Management",
+    "copyright": "Copyright © 2024 Ram Footware Industries",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "asar": true,
+    "files": [
+      "electron/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "server",
+        "to": "server",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "client/build",
+        "to": "client/build",
+        "filter": ["**/*"]
+      }
+    ],
+    "asarUnpack": [
+      "server/**/*"
+    ],
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] }
+      ],
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.business",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "identity": null
+    },
+    "dmg": {
+      "title": "RFI Management",
+      "iconSize": 80,
+      "contents": [
+        { "x": 130, "y": 220, "type": "file" },
+        { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+      ],
+      "window": { "width": 540, "height": 400 }
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "RFI Management"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
