@@ -1,4 +1,4 @@
-# 🥾 RFI — Ram Footware Industries
+
 ## Billing & Inventory Management System
 
 A full-stack **MERN + Electron** desktop application for managing billing, inventory, customers, suppliers, and business analytics.
